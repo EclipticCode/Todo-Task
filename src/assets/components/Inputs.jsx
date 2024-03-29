@@ -1,18 +1,23 @@
 import React from 'react'
 import "./Inputs.css"
 
-const Inputs = () => {
+const Inputs = ({name , onNameChange , desc , onDescChange , addTodoButton}) => {
+
     return (
-        <div>
+        <div className='container'>
             <div className="row">
-                <div className="col-sm-5 col-md-5">
-                    <input type="text" className="form-control text-muted" placeholder="Todo Name" aria-label="Username" aria-describedby="addon-wrapping" />
+                <div className="col-sm-5">
+                    <input type="text" className="form-control text-muted" placeholder="Todo Name" aria-label="Username" aria-describedby="addon-wrapping"
+                    value={name}
+                    onChange={onNameChange}/>
                 </div>
-                <div className="col-sm-5 col-md-5">
-                    <input type="text" className="form-control text-muted" placeholder="Todo Description" aria-label="Username" aria-describedby="addon-wrapping"/>
+                <div className="col-sm-5">
+                    <input type="text" className="form-control text-muted" placeholder="Todo Description" aria-label="Username" aria-describedby="addon-wrapping"
+                    value={desc}
+                    onChange={onDescChange}/>
                 </div>
-                <div className="col-sm-2 col-md-2">
-                    <button type="button" className="btn todoButton">Add Todo</button>
+                <div className="col-sm-2">
+                    <button type="button" className="btn todoButton" onClick={addTodoButton}>Add Todo</button>
                 </div>
             </div>
             <div className="row">
