@@ -1,0 +1,9 @@
+.form-control , .todoButton{
+    margin-top: 50px;
+    border-color: #13AD89;
+    margin-bottom: 50px;
+  }
+  .todoButton{
+    background-color: #13AD89;
+    color: white;
+  }

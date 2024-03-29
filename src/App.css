@@ -1,4 +1,4 @@
-.heading{
+/* .heading{
     text-align: center;
     margin-top: 20px;
     color: #13AD89;
@@ -9,7 +9,16 @@
 .form-control{
   border-color: #13AD89;
 }
-.btn{
+.todoButton{
   background-color: #13AD89;
   color: white;
 }
+.card{
+  width:300px;
+  height:180px;
+  background-color: #CCF5D3;
+}
+.select{
+  background-color: #FE8080;
+  border: none;
+} */
