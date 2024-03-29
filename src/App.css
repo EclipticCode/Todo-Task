@@ -1,0 +1,15 @@
+.heading{
+    text-align: center;
+    margin-top: 20px;
+    color: #13AD89;
+}
+.row{
+  margin: 50px;
+}
+.form-control{
+  border-color: #13AD89;
+}
+.btn{
+  background-color: #13AD89;
+  color: white;
+}
