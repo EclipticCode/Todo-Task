@@ -1,12 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./Card.css"
 
-const Card = ({name,desc,showCard}) => {
-
+const Card = ({name,desc,showCard,editButton}) => {
+const [selectedOption, setSelectedOption] = useState('');
+const colorOptions = { 
+  'Completed' : "green",
+  'Not Completed' : "red"
+};
+  const handleSelectChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
   return (
    <div>
      { showCard ? (
-      <div className='card'>
+      <div className='card' >
       <div className="card-body">
       <b>Name:</b> {name}
       <br /> 
@@ -14,14 +21,17 @@ const Card = ({name,desc,showCard}) => {
       <br /> 
       <b> Status:</b> 
       <span>
-      <select name="" id="" className='select'>
+      {/* <select className = {status === "Completed" ? "Select" : "Select1"} value={status}> */}
+       <select value={selectedOption}
+        onChange={handleSelectChange}
+        style={{ backgroundColor: colorOptions[selectedOption] }}>
       <option value="Not Completed">Not Completed</option>
       <option value="Completed">Completed</option>
-      </select>
+      </select> 
       </span>
       <br />
       <br />
-      <button type="button" className="btn btn-success">Edit</button> &nbsp; &nbsp;
+      <button type="button" className="btn btn-success" onClick={()=>{editButton(name,desc)}}>Edit</button> &nbsp; &nbsp;
       <button type="button" className="btn btn-danger">Delete</button>
       </div>
       </div>

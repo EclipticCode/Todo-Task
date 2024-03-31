@@ -26,15 +26,11 @@ const Inputs = ({name , onNameChange , desc , onDescChange , addTodoButton}) => 
                 </div>
                 <div className="col-sm-6">
                     <b>Status Filter:</b> &nbsp;
-                    <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        All
-                    </button>
-                    <ul className="dropdown-menu">
-                        <li><a className="dropdown-item" href="#">Completed</a></li>
-                        <li><a className="dropdown-item" href="#">Not Completed</a></li>
-
-                    </ul>
-
+                    <select name="" id="" className=''>
+                       <option value="All">All</option>
+                         <option value="Completed">Completed</option>
+                         <option value="Not Completed">Not Completed</option>
+                   </select>
                 </div>
             </div>
         </div>

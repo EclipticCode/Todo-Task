@@ -20,13 +20,15 @@ const todoDesc = (e) => {
 }
 const addTodoButton = () => {
   setShowCard(true)
-  setBoxes([...boxes,{name,desc}])
-  // console.log(boxes)
+  setBoxes([...boxes,{name,desc,status:"Completed"}])
   setName("")
   setDesc("")
 }
-// console.log(boxes)
 
+const editButton = (name,desc) => {
+  setName(name)
+  setDesc(desc)
+}
   return (
     <div>
        <Heading/>
@@ -42,7 +44,9 @@ const addTodoButton = () => {
           <Card
           name={box.name}
           desc={box.desc}
+          status={box.status}
           showCard={showCard}
+          editButton={editButton}
           />
         </div>
         ))
