@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import "./Card.css"
 
-const Card = ({name,desc,showCard,editButton}) => {
+const Card = ({name,desc,showCard,editButton,deleteButton}) => {
 const [selectedOption, setSelectedOption] = useState('');
 const colorOptions = { 
   'Completed' : "green",
@@ -21,7 +21,6 @@ const colorOptions = {
       <br /> 
       <b> Status:</b> 
       <span>
-      {/* <select className = {status === "Completed" ? "Select" : "Select1"} value={status}> */}
        <select value={selectedOption}
         onChange={handleSelectChange}
         style={{ backgroundColor: colorOptions[selectedOption] }}>
@@ -32,7 +31,7 @@ const colorOptions = {
       <br />
       <br />
       <button type="button" className="btn btn-success" onClick={()=>{editButton(name,desc)}}>Edit</button> &nbsp; &nbsp;
-      <button type="button" className="btn btn-danger">Delete</button>
+      <button type="button" className="btn btn-danger" onClick={deleteButton}>Delete</button>
       </div>
       </div>
      ) :
