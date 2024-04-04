@@ -1,7 +1,7 @@
 import React from 'react'
 import "./Inputs.css"
 
-const Inputs = ({name , onNameChange , desc , onDescChange , addTodoButton}) => {
+const Inputs = ({name , onNameChange , desc , onDescChange , addTodoButton, filter, onFilterChange}) => {
 
     return (
         <div className='container'>
@@ -9,7 +9,7 @@ const Inputs = ({name , onNameChange , desc , onDescChange , addTodoButton}) => 
                 <div className="col-sm-5">
                     <input type="text" className="form-control text-muted" placeholder="Todo Name" aria-label="Username" aria-describedby="addon-wrapping"
                     value={name}
-                    onChange={onNameChange}/>
+                    onChange={onNameChange} />
                 </div>
                 <div className="col-sm-5">
                     <input type="text" className="form-control text-muted" placeholder="Todo Description" aria-label="Username" aria-describedby="addon-wrapping"
@@ -26,7 +26,7 @@ const Inputs = ({name , onNameChange , desc , onDescChange , addTodoButton}) => 
                 </div>
                 <div className="col-sm-6">
                     <b>Status Filter:</b> &nbsp;
-                    <select name="" id="" className=''>
+                    <select value={filter} onChange={onFilterChange}>
                        <option value="All">All</option>
                          <option value="Completed">Completed</option>
                          <option value="Not Completed">Not Completed</option>

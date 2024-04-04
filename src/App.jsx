@@ -10,34 +10,45 @@ const [name,setName] = useState("")
 const [desc,setDesc] = useState("")
 const [showCard,setShowCard] = useState(false)
 const [boxes,setBoxes] = useState([])
-const [filter,setFilter] = useState('all')
+const [filter,setFilter] = useState('All')
 
 const todoName = (e) => {
-   setName(e.target.value)
-   e.preventDefault()
+  setName(e.target.value)
+  e.preventDefault()
 }
 const todoDesc = (e) => {
-   setDesc(e.target.value)
+  setDesc(e.target.value)
 }
 const addTodoButton = () => {
   setShowCard(true)
-  setBoxes([...boxes,{name,desc,status:"Completed"}])
+  setBoxes([...boxes,{name,desc,status:"Not Completed"}])
   setName("")
   setDesc("")
-  console.log(boxes)
 }
 const handleDelete = (index) => {
   const updatedBoxes = [...boxes]
   updatedBoxes.splice(index,1)
   setBoxes(updatedBoxes)
-  console.log(updatedBoxes)
 }
 
 const editButton = (name,desc) => {
   setName(name)
   setDesc(desc)
 }
-
+const handleFilterChange = (e) => {
+  setFilter(e.target.value);
+};
+const filteredBoxes = boxes.filter((box)=>{
+  if (filter === "All"){
+    return true;
+  }
+  else if (filter === "Completed"){
+    return box.status === true;
+  }
+  else if (filter === "Not Completed"){
+    return box.status === true;
+  }
+})
   return (
     <div>
        <Heading/>
@@ -45,10 +56,12 @@ const editButton = (name,desc) => {
        onNameChange={todoName}
        desc={desc}
        onDescChange={todoDesc}
-       addTodoButton={addTodoButton}/>
+       addTodoButton={addTodoButton}
+       filter={filter}
+       onFilterChange={handleFilterChange}/>
        <div className="container">
        <div className='row'>
-       { boxes.map((box,index)=>(
+       {filteredBoxes.map((box,index)=>(
         <div className="col-sm-12 col-md-6 col-lg-4" key={index}>
           <Card
           name={box.name}
